@@ -1,4 +1,4 @@
-package model;
+package ma.voicecontrol.api.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,8 +12,8 @@ public class Mail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String subject;
-    private String from;
-    private String to;
+    private String fromm;
+    private String too;
     private String contenu;
 
     @ManyToOne
@@ -38,20 +38,20 @@ public class Mail implements Serializable {
         this.subject = subject;
     }
 
-    public String getFrom() {
-        return from;
+    public String getFromm() {
+        return fromm;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFromm(String from) {
+        this.fromm = from;
     }
 
-    public String getTo() {
-        return to;
+    public String getToo() {
+        return too;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setToo(String to) {
+        this.too = to;
     }
 
     public String getContenu() {
@@ -60,5 +60,13 @@ public class Mail implements Serializable {
 
     public void setContenu(String contenu) {
         this.contenu = contenu;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }

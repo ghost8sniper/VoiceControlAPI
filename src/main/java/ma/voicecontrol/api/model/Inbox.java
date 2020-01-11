@@ -1,4 +1,4 @@
-package model;
+package ma.voicecontrol.api.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

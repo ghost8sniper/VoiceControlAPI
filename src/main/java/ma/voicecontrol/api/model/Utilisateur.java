@@ -1,4 +1,4 @@
-package model;
+package ma.voicecontrol.api.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,10 +18,10 @@ public class Utilisateur implements Serializable {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "utilisateur")
-    private Collection<Mail> listMails;
+    private Collection<Mail> mails;
 
-    @OneToOne(mappedBy = "utilisateur")
-    private Calendar calendar;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "utilisateur")
+    private Collection<Event> events;
 
     public Utilisateur() {
     }
@@ -72,5 +72,21 @@ public class Utilisateur implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Collection<Mail> getMails() {
+        return mails;
+    }
+
+    public void setMails(Collection<Mail> mails) {
+        this.mails = mails;
+    }
+
+    public Collection<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Collection<Event> events) {
+        this.events = events;
     }
 }

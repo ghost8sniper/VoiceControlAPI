@@ -1,7 +1,8 @@
-package model;
+package ma.voicecontrol.api.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class Event implements Serializable {
@@ -10,9 +11,10 @@ public class Event implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String intitule;
+    private Date date;
 
     @ManyToOne
-    private Calendar calendar;
+    private Utilisateur utilisateur;
 
     public Event() {
     }
@@ -31,5 +33,21 @@ public class Event implements Serializable {
 
     public void setIntitule(String intitule) {
         this.intitule = intitule;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }
